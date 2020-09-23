@@ -24,14 +24,24 @@
           </p>
         </div> -->
 
-      <a v-for="(item , index) of history" :key="index" class="panel-block is-active">
+      <a 
+      v-for="(item , index) of historyReversed"
+      :key="index"
+      class="panel-block is-active"
+      @click="itemClick(item ,index)"
+
+        >
         <span class="panel-icon has-text-centered">
           <i class="fas fa-book" aria-hidden="true"></i>
         </span>
         <pre>
 
-          {{item}}
+          {{"\n" +item.text}}
         </pre>
+        <br>
+        <small>
+          {{item.clipped}}
+        </small>
       </a>
     </nav>
   </main>
