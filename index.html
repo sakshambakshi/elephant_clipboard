@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <link rel="stylesheet" href="node_modules/bulma/css/bulma.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <title>Hello World!</title>
+</head>
+
+<body>
+  <main id="app">
+    <nav class="panel">
+      <p class="panel-heading">
+        {{title}}
+      </p>
+      <!-- <div class="panel-block">
+          <p class="control has-icons-left">
+            <input class="input" type="text" placeholder="Search">
+            <span class="icon is-left">
+              <i class="fas fa-search" aria-hidden="true"></i>
+            </span>
+          </p>
+        </div> -->
+
+      <a v-for="(item , index) of history" :key="index" class="panel-block is-active">
+        <span class="panel-icon has-text-centered">
+          <i class="fas fa-book" aria-hidden="true"></i>
+        </span>
+        <pre>
+
+          {{item}}
+        </pre>
+      </a>
+    </nav>
+  </main>
+
+  <!-- You can also require other files to run in this process -->
+  <script src="./renderer.js"></script>
+</body>
+
+</html>
