@@ -5,7 +5,7 @@ const path = require('path')
 function createWindow () {
   // Create the browser window.
   let mainWindow = new BrowserWindow({
-    width: 800,
+    width: 400,
     height: 600,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
@@ -51,6 +51,12 @@ app.whenReady().then(() => {
 
   mainWindow.on("show" , function(){
     //repostion screen near tray icon
+    const {x , y} =  tray.getBounds();
+    const [width , height] = mainWindow.getSize()
+    const updatedX = x - width ;
+    const updatedY = y - height;
+    mainWindow.setBounds({x : updatedX , y: updatedY })
+    console.log({width , height})
   })
 
 
